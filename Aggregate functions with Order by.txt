@@ -1,0 +1,115 @@
+select sum(salary) Sum, max(salary) as Max, Min(Salary) as min, avg(salary) avg
+ from employees;
+
+select count(*) from employees;
+
+select * from employees;
+
+select min (hire_date), max(hire_date) from employees; 
+
+
+select count(*) from employees;
+
+select count(job_id) from EMPLOYEES;
+
+select department_id from employees;
+
+select count(distinct department_id) from EMPLOYEES;
+
+select count(distinct job_id) from EMPLOYEES;
+
+select distinct job_id from employees;
+
+select count(job_id)
+from employees
+where department_id = 30;
+--or
+--where job_id='IT_PROG';
+
+select avg(commission_pct) from employees;
+
+150
+/34
+
+ 500/40 ....
+ 
+ 500/35  .... 
+ 
+ nvl 
+ 
+ select round(avg(nvl(commission_pct,0)),2) from employees;
+
+
+select sum(salary),avg(salary)
+ from employees;
+ 
+ select employee_id,department_id,job_id
+ from employees;
+ 
+ -Group By
+ 
+ 
+select job_id, sum(salary) as SumOfSal,round(avg(salary),0) as AvgSal
+ from employees
+ group by job_id;
+ 
+ select * from employees;
+ 
+ 
+select DEPARTMENT_ID, job_id, sum(salary) as SumOfSal,MAx(salary) as MaxSal
+from employees
+where department_id =50
+group by department_id,job_id
+order by department_id;
+
+select DEPARTMENT_ID, job_id, sum(salary) as SumOfSal,MAx(salary) as MaxSal
+from employees
+where department_id in (50,80,110)
+group by department_id,job_id
+order by department_id;
+
+
+select DEPARTMENT_ID, job_id, sum(salary) as SumOfSal,MAx(salary) as MaxSal
+from employees
+having sum(salary) >5000
+group by department_id,job_id
+order by department_id;
+
+
+select department_id DID,sum(salary) as Sumofsal, max(salary),min(salary)
+from employees
+group by department_id
+having sum(salary)>5000
+order by DID;
+
+----------------------
+--Order By
+
+/* sort by 
+column
+Alias name
+position of the column
+multi column sort
+*/
+select  employee_id eid,last_name name,DEPARTMENT_ID,salary,job_id
+from employees
+order by department_id ,salary desc;
+
+---------------------------
+
+Nested Group Function
+
+select avg(salary)
+from employees;
+
+select avg(salary)
+from employees
+group by department_id;
+
+
+select max(avg(salary))
+from employees
+group by department_id;
+
+
+

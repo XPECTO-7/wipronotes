@@ -1,0 +1,12 @@
+select * from wipro2
+
+alter table wipro
+rename to wipro2;
+
+alter table wipro2
+rename column city to place
+
+desc wipro3
+
+rename wipro2 to wipro3
+

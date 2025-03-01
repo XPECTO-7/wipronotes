@@ -1,0 +1,28 @@
+-- Transaction Control Statements4
+-- Commit, Rollback, Savepoint
+
+create table transaction
+(
+id number,
+name varchar2(20)
+);
+
+insert into transaction 
+values (119,'A');
+
+select * from transaction;
+
+savepoint bb
+
+rollback
+
+rollback to b
+
+
+
+rollback
+
+commit
+
+create table test1
+(id number)

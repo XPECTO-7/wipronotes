@@ -1,0 +1,22 @@
+Datatype Conversion Function
+--------------------------
+select last_name, salary, hire_date
+from EMPLOYEES;
+
+select last_name, salary, to_char(hire_date,'Dd MM YYYY HH:MM:SS')
+from EMPLOYEES;
+
+
+select salary,to_char(salary,'$99,999.00') from employees;
+select salary,to_char(salary,'$99G999D00') from employees;
+
+
+
+
+
+select upper(to_char(hire_date,'Year-mon-dd'))
+from employees;
+
+select max(avg(salary))
+from employees
+group by DEPARTMENT_ID;

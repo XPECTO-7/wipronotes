@@ -1,0 +1,91 @@
+--Constraints 
+
+Create table const
+(
+id number constraint idpk  primary key ,
+name varchar2(20) not null, 
+DOJ date default sysdate ,
+salary number ,
+email varchar2(20) unique,
+constraint salchk check (salary>100000)
+);
+
+insert into const (id,name,salary,email)
+values (1007,'Koushik',110000,'kh@g');
+
+select * from const;
+
+select * from user_constraints;
+/*
+-- composite primary key
+pid number,
+eid number,
+
+constraint compk primary (pid,eid) 
+
+PID    EID
+P001   E001
+P002   E002
+P002   E003
+P003   E003
+
+
+--city varchar2(20) constraint ctych check (city in ('KOL','PUNE','NADIYA')),
+
+-- Multiple constraints for the same column
+
+create table mutitab
+(id number primary key,
+city varchar2(20) not null,
+email varchar2(2),
+constraint mulctychk check (city in ('BLR','CHN','KOL'))
+); 
+
+--Regular expression 
+
+
+select * from  user_constraints
+where table_name ='MUTITAB';
+
+*/
+
+-- Foreign Key
+
+create table ForeConst
+(
+Fid number,
+name varchar2(20),
+ID number,
+Constraint fkkk foreign key(ID)
+references const (id) 
+);
+
+insert into foreconst
+values (5005,'D',1007);
+
+select * from foreconst;
+
+select * from const;
+
+delete from const
+where id=1004;
+
+
+delete from const
+where id=1001;
+
+-- adding constraint using alter
+alter table const
+add constraint hfhfjf check (salary>100000);
+
+alter table const
+drop constraint SYS_C009517;
+
+-- on delete casacade -- on delete set null
+
+/*
+-- incase if there is a primary key forign key relation between
+--tables use cascade to cut thr relation and drop the constriant.
+alter table const
+drop constraint idpk cascade;
+*/

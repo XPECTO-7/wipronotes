@@ -1,0 +1,108 @@
+select last_name,salary
+from employees
+where salary > (select salary
+from employees
+where last_name='Hunold');
+
+
+select last_name,salary
+from employees
+where salary = ( select min(salary)
+from employees );
+
+
+select last_name,hire_date,salary
+from employees 
+where hire_date > (select hire_date 
+                   from employees
+                   where employee_id= (select employee_id
+                                        from employees
+                                        where last_name='De Haan'));
+
+
+/* Find out the list of employees whose projects deadline after Adityan's deadline
+select last_name,dead_line,salary,Project_Name
+from employees 
+where dead_line > (select dead_line 
+                   from employees
+                   where project_code= (select project_code
+                                        from employees
+                                        where last_name='Adityan'));
+                                        */
+SELECT last_name, job_id, salary
+FROM   employees
+WHERE  job_id =
+                (SELECT job_id
+                 FROM   employees
+                 WHERE  last_name = 'Austin')
+AND    salary >
+                (SELECT salary
+                 FROM   employees
+                 WHERE  last_name = 'Austin');
+
+SELECT   department_id, MIN(salary)
+FROM     employees
+GROUP BY department_id
+HAVING   MIN(salary) > 
+                       (SELECT MIN(salary)
+                        FROM   employees
+                        WHERE  department_id = 50);
+--Error                        
+select employee_id,last_name
+from employees
+where salary =  (select min(salary)
+from employees
+group by department_id);
+
+
+
+/*
+
+<ANY Less than the Maximun <9000
+>ANY Grt than the Minimum   >4200
+
+<ALL Less than the Min   <4200
+>ALL Grt than the Max    >9000
+
+*/
+
+SELECT employee_id, last_name, job_id, salary
+FROM   employees
+WHERE  salary >ALL
+                    (SELECT salary
+                     FROM   employees
+                     WHERE  job_id = 'IT_PROG');
+
+--AND    job_id <> 'IT_PROG';
+
+SELECT * FROM departments
+WHERE NOT EXISTS
+(SELECT * FROM employees
+ WHERE employees.department_id=departments.department_id);
+ 
+ 
+ select * from employees
+ where not exists 
+ (select last_name from employees where last_name='Harsh');
+ 
+ select * from Products
+ where not exists
+ (select Model,price from products where model=3186)
+ 
+ 
+ 
+ 
+ select * from employees;
+select * from departments;
+
+
+--null values in Subquery
+
+SELECT emp.last_name
+FROM   employees emp
+WHERE  emp.employee_id not  IN
+                           (SELECT mgr.manager_id
+                            FROM   employees mgr
+                            );
+                            
+         select manager_id from employees;

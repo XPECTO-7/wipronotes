@@ -1,0 +1,36 @@
+create sequence wiproseq
+increment by 1
+start with 100
+maxvalue 100
+minvalue 1
+nocache 
+cycle
+
+select * from wipro
+
+insert into wipro
+values (wiproseq.nextval,'C','HYD');
+
+select * from wipro;
+
+
+alter sequence wiproseq
+increment by 5
+maxvalue 10000
+minvalue 1
+cache 
+nocycle
+
+
+select * from user_sequences;
+
+--insert into mytab  ---if the data type of the column is char
+--values (  'WED00'||myseq.nextval,   )
+
+
+select wiproseq.currval from  dual;
+
+select * from employees;
+
+select employee_id,department_name
+from employees,departments;

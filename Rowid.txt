@@ -1,0 +1,24 @@
+--Deleting duplicate row from a table by using rowid
+
+
+create table Today
+(
+id number,
+name varchar2(20)
+);
+
+insert into today (id)
+values (105);
+
+select * from today;
+
+delete from today
+where id=102;
+
+select rowid,id,name from today;
+
+delete from today
+where rowid = 'AAATQtAANAAAAD0AAC' 
+
+select rowid from employees;
+-----------------------------------------

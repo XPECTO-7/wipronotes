@@ -1,0 +1,131 @@
+create table newtab
+(
+id number,
+name varchar2(20),
+dob date
+);
+
+insert into newtab 
+values (104,' ','01-JAN-03 ');
+
+select * from newtab;
+
+insert into newtab 
+values (104,' ','01-JAN-03 '); 
+
+
+insert into newtab
+values (106,'Sunaina',to_date('2005-JAN-25','YYYY-MON-DD'));
+
+insert into newtab (id)
+values (107);
+
+select *  from newtab;
+
+select * from abctab;
+
+
+select employee_id,last_name,salary,&ColName
+from employees
+where salary > &Sal;
+
+insert into newtab
+values (&id,'&EmpName','&DateOfBirth');
+
+
+create table emp80
+(
+id number,
+name varchar2(20),
+did number,
+job varchar2(20)
+);
+--DML 
+insert into emp80   -- Don't use values clause
+(select employee_id,last_name,department_id,job_id
+from employees
+where department_id=80);
+
+
+select * from emp80;
+
+
+
+
+-- DDL Statement using subquery
+
+create table emp60
+as
+select employee_id,last_name,department_id,job_id
+from employees
+where department_id=60;
+
+select * from emp60;
+
+desc emp60;
+
+-- Custom column names
+create table emp70 (id,name,did,desig)
+as
+select employee_id,last_name,department_id,job_id
+from employees
+where department_id=70;
+
+select * from emp70; 
+
+--------------
+
+--UPDATE
+
+
+select * from newtab;
+
+
+update newtab
+set dob='01-JAN-95',Name ='Amruta Bhosale'
+where id=105;
+
+/*
+update employees
+set salary=100000
+where department_id=80;
+*/
+
+select * from wipro;
+update wipro
+set city=null;
+
+update wipro 
+set ename ='Wipro Emp'
+where eid in (102,100)
+
+update emp
+set salary=  (select salary from emp where name='Tushar') ,
+job_id=      (select job_id from emp where name='Tushar')
+where eid =10001
+----------------
+
+--DELETE 
+
+select * from newtab;
+
+
+delete from newtab
+where id=104;
+
+truncate table wipro
+
+
+select * from wipro
+
+--DELETE vs TRUNCATE
+
+condition                               No Condition
+delete based on the condtn              Delete all the rows
+DML                                     DDL
+Do not remove the value from memry      Removes the values from memory
+Rollback possible                       Can not perform Rollback 
+Manually commit                         Auto Commit
+
+
+

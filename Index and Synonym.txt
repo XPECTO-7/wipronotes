@@ -1,0 +1,24 @@
+create index empidx
+on employees (last_name);
+
+drop index empidx;
+------------------
+create synonym dpt
+for departments;
+
+select * from dpt;
+
+drop synonym dpt;
+
+create index empidx
+on employees (last_name);
+
+drop index empidx;
+------------------
+create synonym dpt
+for departments;
+
+select * from dpt;
+
+drop synonym dpt;
+

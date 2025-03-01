@@ -1,0 +1,43 @@
+select salary,job_id,nvl(commission_pct,0)
+from employees;
+
+--select avg(commission_pct) from employees;
+--select avg(nvl(commission_pct,0)) from employees;
+
+select COMMISSION_PCT,salary, nvl2(COMMISSION_PCT,'COMMISSION_PCT+salary','salary only') Income
+
+from employees;
+
+select * from employees
+where EMPLOYEE_ID=100;
+
+select coalesce (to_char(COMMISSION_PCT),to_char(manager_id),'No Comm No Mngr') from employees;
+
+--coalesce (TA,FE,CC,CT)
+
+
+  
+  SELECT last_name, job_id, salary,
+         CASE job_id WHEN 'IT_PROG'  THEN  1.10*salary
+                     WHEN 'ST_CLERK' THEN  1.15*salary
+                     WHEN 'SA_REP'   THEN  1.20*salary
+         ELSE      salary END     "REVISED_SALARY"
+  FROM   employees;
+
+
+
+SELECT last_name, job_id, salary,
+       DECODE(job_id, 'IT_PROG',  1.10*salary,
+                      'ST_CLERK', 1.15*salary,
+                      'SA_REP',   1.20*salary
+              )
+       REVISED_SALARY
+FROM   employees;
+
+
+SELECT first_name, LENGTH(first_name) "expr1", 
+       last_name,  LENGTH(last_name)  "expr2",
+       NULLIF(LENGTH(first_name), LENGTH(last_name)) result
+FROM   employees;
+
+

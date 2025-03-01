@@ -1,0 +1,58 @@
+create view emvew60
+as
+select employee_id EID,last_name name,department_id,salary*12 as ann_sal
+from employees
+where department_id=60;
+
+select * from emvew60;
+
+
+
+desc employees;
+
+
+create or replace view emvew60
+as
+select employee_id EID,last_name name,department_id,salary*12 as ann_sal,job_id
+from employees
+where department_id=60;
+
+insert into emvw60
+values (111,'nffbs',60,120000,'IT_PROG');
+
+
+---------
+
+create table nowvwtab
+(
+id number,
+name varchar2(20)
+);
+
+insert into nowvwtab
+values (8,'C');
+
+SELECT * FROM NOWVWtab;
+
+
+CREATE or replace view nowview
+as
+select * from nowvwtab
+where name='B';
+
+select * from nowview;
+
+insert into nowview
+values (6,'B');
+------------
+
+insert into nowview
+values (13,'F');
+
+CREATE or replace view nowview
+as
+select * from nowvwtab
+where name='B'
+--with check option;
+--WITH READ ONLY;
+

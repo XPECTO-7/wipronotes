@@ -1,0 +1,50 @@
+Joins
+----
+
+select e.employee_id,e.last_name,e.department_id EmpDID,
+       d.department_id DeptDID,d.department_name,d.location_id
+from employees e join departments d
+      on e.department_id = d.department_id;
+      --where e.manager_id=149;
+
+select * from departments;
+
+select * from locations;
+
+select e.employee_id,e.last_name,e.department_id EmpDID,
+       d.department_id DeptDID,d.department_name,d.location_id,l.street_address
+from employees e join departments d
+      on e.department_id = d.department_id
+      join locations l
+      on d.LOCATION_ID=l.location_id;
+     -----------
+
+Self Join
+-------
+select * from employees;
+
+select employee_id,last_name,job_id,manager_id
+from employees
+order by employee_id;
+
+SELECT w.employee_id,w.last_name emp, m.employee_id Mngr,m.last_name mgrName
+FROM   employees w JOIN employees m
+ON    (w.manager_id = m.employee_id)
+order by w.employee_id;
+
+
+SELECT worker.last_name emp, manager.last_name mgr
+FROM   employees worker JOIN employees manager
+ON    (worker.manager_id = manager.employee_id);
+
+select * from departments;
+select * from employees;
+
+
+select e.employee_id,e.last_name,e.department_id EmpDID,
+       d.department_id DeptDID,d.department_name
+from employees e left outer join departments d
+      on e.department_id = d.department_id;
+      
+      
+   --   Staff with Products

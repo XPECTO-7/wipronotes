@@ -1,0 +1,117 @@
+--DDL
+
+--Create
+
+create table Wipro
+(
+EID number,
+Ename varchar2(20),
+City varchar2(50),
+DOB date ,
+Phone number
+)
+
+desc wipro
+
+select * from wipro;
+
+insert into wipro
+values (100,'Harsha Vardhan','Pune','01-JAN-95');
+
+drop table wipro;
+
+--ALTER
+
+alter table wipro
+modify ename varchar2(100);
+
+desc wipro
+
+alter table wipro
+add phone number;
+
+alter table wipro
+modify city varchar2(50)
+
+--alter table wipro
+--modify city number
+
+alter table wipro
+drop column phone
+
+/*
+alter table wipro
+add constraint pkk primary key (eid)
+
+incase if we want to drop the primary key constraint if its referred in some other table as foreign key.  
+
+alter table wipro
+drop constraint pkk cascade 
+
+
+--cascade
+*/
+
+--Drop
+drop table wipro
+
+select * from recyclebin
+
+flashback table wipro to before drop
+
+select * from wipro 
+
+------------------------
+
+
+
+                    /*    
+                        
+                        hr-   EMP,DEPT,COU,LOC
+                        scott
+                        oe
+                        sys
+                        system
+                        wipro
+                        sachin 
+                        
+                        select * from user_tables;
+                        select * from all_tables;
+
+*/
+
+-----------------
+
+
+delete from wipro
+
+select * from wipro
+
+desc wipro
+
+-------------
+
+
+--  Table creation using subquery
+
+create table dept60
+as select * from employees
+where department_id= 60;
+
+select * from dept60;
+
+
+create table deptnew60
+as select employee_id,last_name,job_id,department_id from employees
+where department_id= 60;
+
+desc deptnew60;
+-----------------
+
+select * from dept60;
+
+alter table wipro
+--read only 
+read write
+
+

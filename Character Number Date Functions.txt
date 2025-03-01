@@ -1,0 +1,123 @@
+Character Manipulation functions
+-----------------------------
+select last_name
+from employees
+where INITCAP( last_name)= 'De Haan';
+
+select initcap('Udaya kumar') 
+from dual;
+
+select concat ('Keerti ','Vardhan') from dual;
+select 'Keerti '||'Vardhan '||'Kumar '||'From Noida' from dual;
+
+select concat ('Sibi ','Kumar') from dual;
+
+select substr('Piyush Prasad',1,3) from dual;
+
+ select current_timestamp from dual;
+ select substr(current_timestamp,1,8) from dual;
+ 
+ select sysdate from dual;
+
+select last_name||' 10:40:25' from employees;
+
+select 'The date and time is: '|| substr( current_timestamp,1,17) from dual;
+
+select instr ('Durgam Asha','u') from dual;
+
+select instr ('Durgam Asha','a',1,2) from dual;
+
+select instr ('Durgam Asha','a',-1,1) from dual;
+select instr ('Durgam Asha','a',-1,2) from dual;  
+
+select salary, lpad(salary,8,'*') from employees;
+
+select salary, rpad(salary,6,'*') from employees;
+
+select salary from EMPLOYEES;
+
+select salary, lpad(' ',8,'*')|| rpad(salary,6,'*') from employees;
+
+select rpad( '****'||salary||'****',14,'*') from employees;
+
+select replace ('Piyush','Pi','A') from dual;
+
+select replace ('Ahammed','Aha','Moh') from dual;
+
+select replace (last_name,'S','1') from employees
+where last_name like 'S%';
+
+select trim ('H' from 'Hello World')  from dual;
+
+select trim ('e' from 'employee')  from dual; 
+
+-------------
+
+Number Functions
+----------
+
+
+select round  (12364.4264,2)  from dual;
+select round  (12364.4244,2)  from dual;
+
+select round  (12364.4744,1)  from dual;
+
+select round  (12364.5744)  from dual;
+select round  (12364.4744,0)  from dual;
+
+select round  (12364.4744,-1)  from dual;
+select round  (12364.4744,-2)  from dual;
+select round  (12364.4744,-3)  from dual;
+select round  (12764.4744,-3)  from dual;
+
+select round(43.926,-1) from dual;
+
+
+select trunc  (12364.4264,2)  from dual;
+select trunc  (12364.4244,2)  from dual;
+
+select trunc  (12364.4744,1)  from dual;
+
+select trunc  (12364.5744)  from dual;
+select trunc  (12364.4744,0)  from dual;
+
+select trunc  (12364.4744,-1)  from dual;
+select trunc  (12364.4744,-2)  from dual;
+select trunc  (12364.4744,-3)  from dual;
+select trunc  (12764.4744,-3)  from dual;
+
+select mod(1600,500) from dual;
+
+select (sysdate-hire_date)/365 from employees;
+
+select employee_id,last_name,
+hire_date,round((sysdate-hire_date)/365) as  Experience
+from employees;
+
+select sysdate from dual;
+
+01-DEC-09
+
+select  round((sysdate - to_date('01-dec-09','DD-MON-yy'))/365) from dual;
+
+select months_between('01-Mar-25','01-jan-25') from dual;
+
+select add_months(sysdate,36) from dual;
+
+select add_months('22-02-25',36) from dual;
+
+
+select next_day ('01-Jun-25','Sunday') from dual;
+
+select next_day (sysdate,'Sunday') from dual;
+
+
+
+select last_day ('01-feb-24') from dual;
+
+select round(sysdate,'Month') from dual;
+
+select round(to_date('13-feb-25','DD-Mon-YY'),'Month') from dual;
+
+
+
